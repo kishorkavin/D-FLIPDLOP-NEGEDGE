@@ -31,14 +31,31 @@ Next state of D flip-flop is always equal to data input, D for every positive tr
 /* write all the steps invloved */
 
 **PROGRAM**
+D-FLIP FLOP WITH NEGATIVE EDGE TRIGGER:
+module d_ff_neg_edge (d, clk, rst, q);
+  input d, clk, rst;
+  output reg q;
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+  always @(negedge clk or posedge rst) begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else
+      q <= d; // D input is passed to Q on the negative clock edge
+  end
+endmodule
+
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by:kishore kavin
+
+RegisterNumber:24005324
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![WhatsApp Image 2024-12-20 at 20 00 28_b902adec](https://github.com/user-attachments/assets/e9f869d9-903a-4215-ad04-d24704e9691b)
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![WhatsApp Image 2024-12-20 at 20 00 27_723b85eb](https://github.com/user-attachments/assets/e3431839-3893-476b-bac1-48fb97a0c371)
 
 **RESULTS**
+A D Flip-Flop (also known as a Data or Delay Flip-Flop) is a basic memory element used in digital electronics. It has one data input D, a clock input CLK, and two outputs Q and Qbar. The key characteristic of a D flip-flop is that it captures the input D at the moment of the clock's rising or falling edge and transfers that value to the output Q.In this case, you have asked for a D Flip-Flop with a negative edge (negedge) clocking, meaning the flip-flop captures the input D on the falling edge of the clock.
